@@ -1,5 +1,8 @@
 ﻿using Buildit.Webcrawler.Business.Interfaces;
+using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Buildit.Webcrawler.Business.Implementation
 {
@@ -7,7 +10,13 @@ namespace Buildit.Webcrawler.Business.Implementation
     {
         public List<string> GetAllLinks(string testPageHtml)
         {
-            throw new System.NotImplementedException();
+            var document = new HtmlDocument();
+            document.LoadHtml(testPageHtml);
+
+            return document.DocumentNode.Descendants("a")
+                                              .Select(a => a.GetAttributeValue("href", null))
+                                              .Where(u => !String.IsNullOrEmpty(u))
+                                              .ToList();
         }
     }
 }
