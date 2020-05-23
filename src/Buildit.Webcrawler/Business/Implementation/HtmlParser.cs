@@ -8,10 +8,10 @@ namespace Buildit.Webcrawler.Business.Implementation
 {
     public class HtmlParser : IHtmlParser
     {
-        public List<string> GetAllLinks(string testPageHtml)
+        public List<string> GetAllLinks(string pageUrl)
         {
-            var document = new HtmlDocument();
-            document.LoadHtml(testPageHtml);
+            var web = new HtmlWeb();
+            var document = web.Load(pageUrl);
 
             return document.DocumentNode.Descendants("a")
                                               .Select(a => a.GetAttributeValue("href", null))

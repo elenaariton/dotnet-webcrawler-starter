@@ -1,5 +1,6 @@
 using Buildit.Webcrawler.Business.Implementation;
 using Buildit.Webcrawler.Business.Interfaces;
+using HtmlAgilityPack;
 using Moq;
 using NUnit.Framework;
 
@@ -12,32 +13,33 @@ namespace Buildit.WebCrawler.Tests
         [SetUp]
         public void Setup()
         {
-            _htmlParser = new HtmlParser();
         }
 
         [Test]
-        public void GetAllLinks_WhenGivenAPageHtmlWithLinks_ReturnsAllLinks()
+        public void GetAllLinks_WhenGivenAPageUrl_ReturnsLinks()
         {
             //Arrange
-            var testPageHtml = "<html><body><a href=\"www.google.com\"></a><br/><a href=\"bing.com\"></a></body></html>";
-
+            var pageUrl = "https://www.amazon.co.uk/";
+           
             //Act
-            var links = _htmlParser.GetAllLinks(testPageHtml);
+            var links = _htmlParser.GetAllLinks(pageUrl);
 
             //Assert
             Assert.IsNotNull(links);
-            Assert.AreEqual(links.Count, 2);
-            Assert.AreEqual(links[0], "www.google.com");
+            Assert.IsTrue(links.Count > 0);            
         }
 
         [Test]
         public void GetAllLinks_WhenGivenAPageHtmlWithoutLinks_ReturnsEmptyLinkList()
         {
             //Arrange
-            var testPageHtml = "<html><body><p>this is a simple page without links</p></body><html>";
+            //if we don`t load DOM, and the website doesn`t work without javascript enabled,
+            //the content might be affected, so no links
+            //could be done in an improved version of the crawler
+            var testPageUrl = "https://www.boatyardx.com/";
 
             //Act
-            var links = _htmlParser.GetAllLinks(testPageHtml);
+            var links = _htmlParser.GetAllLinks(testPageUrl);
 
             //Assert
             Assert.IsNotNull(links);
@@ -55,12 +57,6 @@ namespace Buildit.WebCrawler.Tests
             //Assert
             Assert.IsNotNull(links);
             Assert.AreEqual(links.Count, 0);
-        }
-
-        [Test]
-        public void GetPageHtml_WhenGivenAPageUrl_ReturnsThatPageHtml()
-        {
-
         }
     }
 }

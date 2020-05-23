@@ -47,3 +47,4 @@ D:\personal\shipyard test\dotnet-webcrawler-starter\src\Buildit.Webcrawler\obj\D
 D:\personal\shipyard test\dotnet-webcrawler-starter\src\Buildit.Webcrawler\obj\Debug\netcoreapp3.1\Buildit.Webcrawler.dll
 D:\personal\shipyard test\dotnet-webcrawler-starter\src\Buildit.Webcrawler\obj\Debug\netcoreapp3.1\Buildit.Webcrawler.pdb
 D:\personal\shipyard test\dotnet-webcrawler-starter\src\Buildit.Webcrawler\obj\Debug\netcoreapp3.1\Buildit.Webcrawler.genruntimeconfig.cache
+D:\personal\shipyard test\dotnet-webcrawler-starter\src\Buildit.Webcrawler\obj\Debug\netcoreapp3.1\Buildit.Webcrawler.csprojAssemblyReference.cache
