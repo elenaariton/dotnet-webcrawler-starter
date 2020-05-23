@@ -18,3 +18,9 @@ out/
 ### DotNetCore ###
 /bin
 /obj
+/.vs
+/src/.vs/Buildit.Webcrawler
+/src/Buildit.Webcrawler/.vs
+/src/Buildit.Webcrawler/bin/Debug/netcoreapp3.1
+/src/Buildit.WebCrawler.Tests/bin/Debug/netcoreapp3.1
+/src/Buildit.WebCrawler.Tests/obj/Debug/netcoreapp3.1
