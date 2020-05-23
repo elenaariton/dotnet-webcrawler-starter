@@ -13,16 +13,17 @@ namespace Buildit.WebCrawler.Tests
         [SetUp]
         public void Setup()
         {
+            _htmlParser = new HtmlParser();
         }
 
         [Test]
         public void GetAllLinks_WhenGivenAPageUrl_ReturnsLinks()
         {
             //Arrange
-            var pageUrl = "https://www.amazon.co.uk/";
+            var pageUrl = "https://www.amazon.co.uk/about";
            
             //Act
-            var links = _htmlParser.GetAllLinks(pageUrl);
+            var links = _htmlParser.GetAllLinks(pageUrl, "https://www.amazon.co.uk");
 
             //Assert
             Assert.IsNotNull(links);
@@ -39,7 +40,7 @@ namespace Buildit.WebCrawler.Tests
             var testPageUrl = "https://www.boatyardx.com/";
 
             //Act
-            var links = _htmlParser.GetAllLinks(testPageUrl);
+            var links = _htmlParser.GetAllLinks(testPageUrl,testPageUrl);
 
             //Assert
             Assert.IsNotNull(links);
@@ -52,7 +53,7 @@ namespace Buildit.WebCrawler.Tests
             //Arrange
 
             //Act
-            var links = _htmlParser.GetAllLinks("");
+            var links = _htmlParser.GetAllLinks("","");
 
             //Assert
             Assert.IsNotNull(links);

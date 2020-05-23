@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Buildit.Webcrawler.Business.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Buildit.Webcrawler.Business.Interfaces
 {
-    public interface IHtmlParser
+    public interface ICrawler
     {
-        List<string> GetAllLinks(string pageUrl, string baseUrl);
+        CrawlerData GetCrawlerData(string uri);
     }
 }
