@@ -55,3 +55,21 @@ Good luck and thank you for your time - we look forward to seeing your creation.
 
 ## Running the app
 1. Test the endpoint with `curl http://localhost:8080/crawl?url=<-- url to be crawled>`
+
+
+## MY WORK WITH DETAILS AND CONCLUSIONS
+
+## The process 
+I have build a really simple crawler, which behind is basically doing a html parsing and getting all the links in the root page and on all the pages linked on the root. Root is the given url on the call.
+I used HtmlAgilityPack to parse the page html and get the links.
+I have build two clases for the separation of concerns and responsability, one for parsing the html, and one for buidling the crawled data and visit all the links.
+I have made async calls in order to speed up the processing of the links, and I built a Depth first search algorithm to visit all the links.
+I have started with the TDD approach, but because of not having that much time I abandonded it, and build just a test for the crawler itself.
+
+## What could be done with more time
+I think the processing time can be improved, by creating schedulers for processing the child links for each page, and multitreading the entire flow in a better way.
+Also, I would test multiple available packages for web scrapping and check the performance, like Abot or SpiderSharp.
+I didn`t had that much time to invest in a more performant crawler, but I think is a good first shape. 
+
+
+

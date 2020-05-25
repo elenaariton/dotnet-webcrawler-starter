@@ -7,6 +7,6 @@ namespace Buildit.Webcrawler.Business.Interfaces
 {
     public interface IHtmlParser
     {
-        List<string> GetAllLinks(string pageUrl, string baseUrl);
+        Task<List<KeyValuePair<int, List<string>>>> GetAllLinks(string pageUrl);
     }
 }

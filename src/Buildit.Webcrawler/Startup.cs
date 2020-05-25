@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Hosting;
-
+using Buildit.Webcrawler.Infrastructure;
 
 namespace Buildit.Webcrawler
 {
@@ -26,8 +26,9 @@ namespace Buildit.Webcrawler
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            Bootstrapper.ConfigureIoC(services);
             services.AddControllers();
+            services.AddMvc();
         }
  
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,9 +39,6 @@ namespace Buildit.Webcrawler
                 app.UseDeveloperExceptionPage();
             }
 
-
-
-       
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {

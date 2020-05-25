@@ -8,6 +8,6 @@ namespace Buildit.Webcrawler.Business.Interfaces
 {
     public interface ICrawler
     {
-        CrawlerData GetCrawlerData(string uri);
+        Task<CrawlerData> GetCrawlerData(string url);
     }
 }
