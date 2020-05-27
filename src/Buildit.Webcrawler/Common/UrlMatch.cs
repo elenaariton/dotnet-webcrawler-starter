@@ -6,7 +6,7 @@ namespace Buildit.Webcrawler.Common
     {
         public static string GetBaseUrl(string url)
         {
-            var regexPattern = "^[^\\/]+:\\/\\/[^\\/]*?\\.?([^\\/.]+)\\.[^\\/.]+(?::\\d+)?\\/";
+            var regexPattern = @"^[^\/]+:\/\/[^\/]*?\.?([^\/.]+)\.[^\/.]+(?::\d+)?\/";
 
             return Regex.Match(url, regexPattern).ToString();
         }
